@@ -1,0 +1,109 @@
+<template>
+    <!-- Header Section -->
+    <div class="collab-gallery-header">
+        <div class="collab-header-title">
+        </div>
+    </div>
+
+    <!-- Recent Documents Section -->
+    <template if:true={hasRecentDocuments}>
+        <section class="collab-section">
+            <h2 class="collab-section-title">Recent Documents</h2>
+            <div class="collab-documents-recent-grid">
+                <template for:each={recentDocuments} for:item="documento">
+                    <c-collab-document-tile
+                        key={documento.id}
+                        document={documento}
+                        ondownload={handleDocumentDownload}>
+                    </c-collab-document-tile>
+                </template>
+            </div>
+        </section>
+    </template>
+
+    <!-- Filters Section -->
+    <section class="collab-filters-section">
+        <div class="collab-filters-header">
+            <h3 class="collab-filters-title">Filter Documents</h3>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="collab-search-bar">
+            <lightning-input
+                type="search"
+                placeholder="Search by title, description, or author..."
+                value={searchTerm}
+                onchange={handleSearchChange}>
+            </lightning-input>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="collab-filters-grid">
+            <div class="collab-filter-item">
+                <label class="collab-filter-label">Category</label>
+                <lightning-combobox
+                    options={categoryOptions}
+                    value={selectedCategory}
+                    onchange={handleCategoryChange}
+                    placeholder="Select category">
+                </lightning-combobox>
+            </div>
+            <div class="collab-filter-item">
+                <label class="collab-filter-label">Year</label>
+                <lightning-combobox
+                    options={yearOptions}
+                    value={selectedYear}
+                    onchange={handleYearChange}
+                    placeholder="Select year">
+                </lightning-combobox>
+            </div>
+        </div>
+
+        <!-- Reset Button -->
+        <c-collab-button
+            label="Reset Filters"
+            variant="neutral"
+            onclick={handleResetFilters}>
+        </c-collab-button>
+    </section>
+
+    <!-- All Documents Section -->
+    <section class="collab-section">
+        <div class="collab-section-header">
+            <h2 class="collab-section-title">All Documents</h2>
+            <span class="collab-document-count" if:true={hasDocuments}>
+                {documentCount} results
+            </span>
+        </div>
+
+        <!-- Documents Grid -->
+        <template if:true={hasDocuments}>
+            <div class="collab-documents-grid">
+                <template for:each={filteredDocuments} for:item="documento">
+                    <c-collab-document-tile
+                        key={documento.id}
+                        document={documento}
+                        ondownload={handleDocumentDownload}>
+                    </c-collab-document-tile>
+                </template>
+            </div>
+        </template>
+
+        <!-- Empty State -->
+        <template if:false={hasDocuments}>
+            <div class="collab-empty-state">
+                <lightning-icon
+                    icon-name="utility:document"
+                    size="large">
+                </lightning-icon>
+                <h3>No documents found</h3>
+                <p>No documents match the selected search criteria.</p>
+                <c-collab-button
+                    label="Reset Filters"
+                    variant="primary"
+                    onclick={handleResetFilters}>
+                </c-collab-button>
+            </div>
+        </template>
+    </section>
+</template>

@@ -1,0 +1,50 @@
+<template>
+    <article class="collab-document-tile">
+        <!-- Metadata Section (File Type, Date & Category) -->
+        <div class="collab-document-meta">
+            <template if:true={hasFileType}>
+                <span class="collab-document-filetype">
+                    <lightning-icon icon-name={fileTypeIcon} size="x-small"></lightning-icon>
+                    {document.format}
+                </span>
+            </template>
+            <span>
+                <lightning-icon
+                    icon-name="utility:event"
+                    size="x-small"
+                    class="collab-icon-meta">
+                </lightning-icon>
+                {formattedDate}
+            </span>
+            <span>
+                <span class={categoryDotClass}></span>
+                {document.category}
+            </span>
+        </div>
+
+        <!-- Content Section -->
+        <h3 class="collab-document-title">{document.title}</h3>
+        <p class="collab-document-description">{document.description}</p>
+
+        <!-- Author Info -->
+        <div class="collab-document-meta">
+            <lightning-icon
+                icon-name="utility:user"
+                size="x-small"
+                class="collab-icon-meta">
+            </lightning-icon>
+            <span>{document.author}</span>
+        </div>
+
+        <!-- Action Footer -->
+        <div class="collab-document-footer">
+            <c-collab-button
+                label="View Document"
+                variant="primary"
+                size="small"
+                icon-name="utility:preview"
+                onclick={handleDownload}>
+            </c-collab-button>
+        </div>
+    </article>
+</template>

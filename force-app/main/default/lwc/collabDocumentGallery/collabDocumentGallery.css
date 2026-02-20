@@ -1,0 +1,152 @@
+.collab-gallery {
+    padding: 1.5rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.collab-gallery-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.collab-header-title h1 {
+    margin: 0 0 0.5rem 0;
+}
+
+.collab-header-title p {
+    margin: 0;
+}
+
+.collab-section {
+    margin-bottom: 2rem;
+}
+
+.collab-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.collab-section-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.collab-document-count {
+    font-size: 0.875rem;
+    color: #4d4d4d;
+    font-weight: 500;
+}
+
+.collab-documents-grid,
+.collab-documents-recent-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.collab-documents-recent-grid {
+    margin-bottom: 1.5rem;
+}
+
+.collab-filters-section {
+    margin-bottom: 1.5rem;
+}
+
+.collab-filters-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.collab-filters-title {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0;
+}
+
+.collab-search-bar {
+    margin-bottom: 1rem;
+}
+
+.collab-filters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.collab-filter-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.collab-filter-label {
+    font-weight: 500;
+    font-size: 0.875rem;
+    color: #1a1a1a;
+}
+
+.collab-empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: #f8f8f8;
+    border-radius: 4px;
+}
+
+.collab-empty-state h3 {
+    font-size: 1.25rem;
+    font-weight: 400;
+    margin: 0 0 0.5rem 0;
+    color: #1a1a1a;
+}
+
+.collab-empty-state p {
+    margin: 0 0 1.5rem 0;
+    color: #4d4d4d;
+}
+
+@media (max-width: 1024px) {
+    .collab-documents-grid,
+    .collab-documents-recent-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767px) {
+    .collab-gallery {
+        padding: 1rem;
+    }
+
+    .collab-documents-grid,
+    .collab-documents-recent-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .collab-filters-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .collab-section-header,
+    .collab-filters-header {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .collab-filters-header {
+        align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .collab-empty-state {
+        padding: 2rem 1rem;
+    }
+}

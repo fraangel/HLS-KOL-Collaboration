@@ -1,0 +1,12 @@
+<template>
+    <button class={buttonClass} onclick={handleClick}>
+        <template if:true={hasIcon}>
+            <lightning-icon
+                icon-name={iconName}
+                size={iconSize}
+                class={iconClass}>
+            </lightning-icon>
+        </template>
+        <span>{label}</span>
+    </button>
+</template>

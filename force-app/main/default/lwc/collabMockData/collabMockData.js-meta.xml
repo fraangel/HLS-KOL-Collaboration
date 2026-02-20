@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>65.0</apiVersion>
+    <isExposed>false</isExposed>
+    <masterLabel>Collab Mock Data</masterLabel>
+    <description>Mock data module for HLS KOL Collaboration Platform - clinical oncology document examples</description>
+</LightningComponentBundle>
